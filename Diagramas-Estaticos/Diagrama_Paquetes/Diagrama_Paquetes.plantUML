@@ -1,0 +1,31 @@
+@startuml Diagrama_Paquetes
+
+package "Usuario" {
+    class RegistroUsuario
+    class Usuario
+    class InicioSesion
+}
+
+package "Carrito" {
+    class Carrito
+    class ItemCarrito
+}
+
+package "Facturación" {
+    class Factura
+    class DetalleFactura
+    class Pago
+}
+
+package "Producto" {
+    class Producto
+}
+
+Usuario -- Carrito
+Carrito -- Producto
+Facturación -- Carrito
+Facturación -- Pago
+Usuario -- Facturación
+
+@enduml
+

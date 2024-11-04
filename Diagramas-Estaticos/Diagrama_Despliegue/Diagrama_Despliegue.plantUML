@@ -1,0 +1,18 @@
+@startuml Diagrama_Despliegue
+
+node "Dispositivo Usuario" as usuario {
+    [App Web]
+    [App Móvil]
+}
+
+node "Servidor de Aplicaciones" as servidor {
+    [Servicios Backend]
+}
+
+database "Base de Datos MySQL" as baseDeDatos
+
+usuario --> servidor : HTTPS (Acceso desde App Web y App Móvil)
+servidor --> baseDeDatos : JDBC (Conexión a Base de Datos)
+
+@enduml
+

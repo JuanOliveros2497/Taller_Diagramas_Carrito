@@ -1,0 +1,32 @@
+@startuml Diagrama_Componentes
+
+package "Interfaz de Usuario" {
+    [App Web]
+    [App Móvil]
+}
+
+package "Servicios de Negocio" {
+    [Servicio de Usuario]
+    [Servicio de Carrito]
+    [Servicio de Facturación]
+    [Servicio de Producto]
+}
+
+package "Base de Datos" {
+    [Base de Datos MySQL]
+}
+
+[App Web] --> [Servicio de Usuario]
+[App Móvil] --> [Servicio de Usuario]
+
+[Servicio de Usuario] --> [Servicio de Carrito]
+[Servicio de Carrito] --> [Servicio de Producto]
+[Servicio de Facturación] --> [Servicio de Usuario]
+[Servicio de Facturación] --> [Servicio de Carrito]
+[Servicio de Facturación] --> [Base de Datos MySQL]
+
+[Servicio de Usuario] --> [Base de Datos MySQL]
+[Servicio de Carrito] --> [Base de Datos MySQL]
+[Servicio de Producto] --> [Base de Datos MySQL]
+
+@enduml

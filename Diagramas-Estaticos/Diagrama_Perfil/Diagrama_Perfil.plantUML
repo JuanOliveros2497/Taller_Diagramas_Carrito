@@ -1,0 +1,34 @@
+@startuml Diagrama_Perfil
+
+class Usuario <<Usuario>> {
+    + nombre: STRING
+    + correo_electronico: STRING
+}
+
+class Carrito <<Carrito>> {
+    + id_carrito: INT
+    + total_items: INT
+}
+
+class Factura <<Factura>> {
+    + subtotal: DECIMAL
+    + impuestos: DECIMAL
+    + total: DECIMAL
+}
+
+class Producto <<Producto>> {
+    + nombre: STRING
+    + precio: DECIMAL
+}
+
+Usuario --> Carrito : "interactúa"
+Carrito --> Producto : "contiene"
+Factura --> Carrito : "asociada a"
+Factura --> Usuario : "generada por"
+
+@enduml
+
+
+
+
+

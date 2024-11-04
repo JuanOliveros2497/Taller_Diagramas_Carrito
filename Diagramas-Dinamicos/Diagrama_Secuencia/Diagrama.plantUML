@@ -1,0 +1,29 @@
+@startuml Diagrama_Secuencia
+
+actor Usuario as user
+participant "InicioSesion" as sesion
+participant "Carrito" as carrito
+participant "Producto" as producto
+participant "ItemCarrito" as item
+participant "Factura" as factura
+participant "Pago" as pago
+
+user -> sesion: iniciarSesion(correo, contraseña)
+sesion --> user: autenticar()
+
+user -> carrito: crearCarrito(id_usuario)
+carrito --> user: confirmarCarrito(id_carrito)
+
+user -> producto: verProducto(id_producto)
+producto --> user: mostrarDetalles()
+
+user -> item: agregarProducto(id_carrito, id_producto, cantidad)
+item --> carrito: actualizarCarrito()
+
+user -> factura: generarFactura(id_usuario, id_carrito)
+factura -> item: obtenerDetalleCarrito()
+factura <-- item: detalleItemCarrito
+factura -> pago: procesarPago(metodo, numero_tarjeta)
+pago --> factura: confirmarPago()
+factura --> user: confirmarFactura(total)
+@enduml
