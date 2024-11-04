@@ -1,0 +1,21 @@
+@startuml Diagrma
+
+:Usuario;
+:Registro;
+:Producto;
+  if (Crear carrito?) then (Sí)
+    :Carrito;
+    :ItemCarrito;
+  if (Comprar) then (Sí)
+    :Factura;
+    :Detallefactura;
+    :Pagar;
+  else (No)
+    :Finalizar Proceso;
+  endif
+  
+else (No)
+   :Finalizar Proceso;
+endif
+:Fin;
+@enduml

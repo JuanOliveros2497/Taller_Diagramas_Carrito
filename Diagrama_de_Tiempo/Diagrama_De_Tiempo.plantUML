@@ -1,0 +1,29 @@
+@startuml Diagrama de Timpo
+
+robust "Usuario" as U
+robust "Carrito" as S
+robust "Pago" as DB
+robust "Factura" as F
+
+@0
+U is "Registrarse" #white
+
+@5
+S is "Esperando solicitud" #white
+
+@10
+U -> S : Crear carrito
+S is "Procesando consulta" #yellow
+
+@15
+S -> DB : Pagar Carrito
+DB is "Hacer pago" #white
+
+@20
+DB -> S : Confirmar Pago
+DB -> F : Crea Factura
+
+@25
+F is "Recibe detalle Factura" #white
+
+@enduml

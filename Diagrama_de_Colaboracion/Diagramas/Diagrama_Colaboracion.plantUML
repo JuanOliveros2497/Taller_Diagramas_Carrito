@@ -1,0 +1,17 @@
+@startuml Diagrama-De-Colaboracion
+
+title Diagrama de Colaboración - Carrito
+
+actor Usuario as user
+
+user->IniciarSesion: IniciaSesion
+user->Factura: Acceso a las Facturas
+IniciarSesion->Carrito: Crear nuevo carrito
+IniciarSesion->Producto: tengo acceso a los procutos
+Carrito->Producto: Ingreso porductos al carrito
+Carrito->ItemCarrito: Aacceso al ItemCarrito
+Producto-->Carrito: Visualizacion de productos dentro de carrito
+ItemCarrito-->Carrito: Confirmación de pedido
+Factura->Pago: Hago el pago
+Pago-->Factura: Lo obtengo de la factura
+@enduml

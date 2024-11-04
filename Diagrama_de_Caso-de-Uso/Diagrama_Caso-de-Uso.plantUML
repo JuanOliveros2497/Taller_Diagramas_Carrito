@@ -1,0 +1,21 @@
+@startuml caso de uso
+
+actor Usuario
+
+package "Carrito de Compra" {
+   
+Usuario -> (Registrar)
+
+(Registrar) --> (VistaDeProductos)
+(Registrar) --> (Producto)
+(Registrar) --> (Ver carrito de compra)
+(Carrito) --> (Item carrito)
+(Ver carrito de compra) --> (Item carrito)
+(Producto)-->(Carrito)
+(Item carrito) --> (Pago)
+(Pago) --> (Factura)
+(Factura) --> (DetalleFactura)
+}
+
+@enduml
+

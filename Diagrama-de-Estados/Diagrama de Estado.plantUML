@@ -1,0 +1,22 @@
+@startuml  DiagramaDeEstado 
+
+[*] --> USUARIO
+USUARIO --> REGISTRO: Registro del usuario
+REGISTRO-right-> PRODUCTO: Acceso a los porductos
+PRODUCTO-down-> CARRITO:  Agrego productos
+CARRITO -left-> ITEMCARRITO: Creo un conjunto de productos
+ITEMCARRITO --> PAGO: Pago el carrito de productos
+PAGO -right-> FACTURA:Recibo factura 
+FACTURA--> DETALLEFACTURA: Recibo detelles de la factura
+DETALLEFACTURA --> [*]
+
+
+REGISTRO : Procesos de registro de Usaurio 
+PRODUCTO : Vista y accesto a los Productos
+CARRITO : Creaccion de un Nuevo carrito
+ITEMCARRITO : Conjunto de productos agragado al carrito
+PAGO: Pago del Carrito 
+FACTURA: Factura de pago
+DETALLEFACTURA: Detalles de la factura de Pago
+
+@enduml
